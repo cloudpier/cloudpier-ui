@@ -1,0 +1,81 @@
+<!--
+  ~ This file is part of Cloud4SOA Frontend.
+  ~
+  ~     Cloud4SOA Frontend is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Cloud4SOA Frontend is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Cloud4SOA Frontend.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:style src="CliMigrateView.css" />
+    
+        <g:HTMLPanel>
+        <div class="{style.caption}">
+            Migration to this PaaS offering requires to perform some steps using the Cloud4SOA Command Line Interface. Also as
+            Git is used for the deployment and migration, Git has to be available and the application you want to deploy must be properly
+            initialised for Git*.
+            <br/>
+            Cloud4SOA CLI is a Spring Roo add-on. If don't have done it already, download and then extract
+            <a href="http://s3.amazonaws.com/dist.springframework.org/release/ROO/spring-roo-1.2.0.RELEASE.zip">Spring ROO 1.2.0</a>
+            <br/>
+            <ul>
+                <li>Run the Spring Roo tool (
+                    <div class="{style.code}">roo.sh</div>
+                    in Unix/Linux or
+                    <div class="{style.code}">roo.bat</div>
+                    in Windows) from the /bin directory.
+                </li>
+                <li>Get Cloud4SOA CLI add-on with<br/>
+                    <div class="{style.code}">osgi start --url http://demo.cloud4soa.eu/eu.cloud4soa.cli.roo.addon-0.0.3-SNAPSHOT.jar
+                    </div>
+                </li>
+                <li>Login:
+                    <div class="{style.code}">cloud4soa login --username
+                        <span ui:field="c4s_username">username</span>
+                        --password &lt;your-password-here&gt;
+                    </div>
+                </li>
+ 
+                <li>View the available PaaS offerings with <br/>
+                    <div class="{style.code}">cloud4soa show paas profiles 
+                    </div> and get the id of the PaaS of your selection
+                </li>
+
+                <li>View the available application profiles with 
+                    <br/>
+                    <div class="{style.code}"> cloud4soa show application profiles
+                    </div> 
+                    and get the id of the application of your selection
+                </li>
+                <li>Finally Migrate the application with <br/>
+                <div class="{style.code}">cloud4soa migrate gitPush --id x --paasId x --repoPath /xxx/xxxx/xxxxx/ --sshKeyPass xx;
+                </div><br/> Where  paasId  is the id of the PaaS of your selection, 
+                      id is the id of the deployed application, repoPath is the path to your initialised
+                repository and sshKeyPass the passphrase of the ssh key in your machine.
+            </li>            
+                
+            </ul>
+            <br/>
+      
+            <div  class="{style.nodisplay}">
+                <span ui:field="c4s_appUriId">appUriId</span>
+                <span ui:field="c4s_paasUriId">paasUriId</span>
+                <span ui:field="c4s_address">c4s_address</span>
+                <span ui:field="c4s_gitproxy">c4s_gitproxy</span>                
+            </div>
+        </div>
+
+
+    </g:HTMLPanel>
+</ui:UiBinder>

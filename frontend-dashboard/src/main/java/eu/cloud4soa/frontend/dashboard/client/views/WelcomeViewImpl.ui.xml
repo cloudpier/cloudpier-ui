@@ -1,0 +1,155 @@
+<!--
+  ~ This file is part of Cloud4SOA Frontend.
+  ~
+  ~     Cloud4SOA Frontend is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Cloud4SOA Frontend is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Cloud4SOA Frontend.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:gxt="urn:import:com.extjs.gxt.ui.client.widget" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style src="WelcomeView.css" />
+		
+	<gxt:ContentPanel headerVisible="false" borders="false"
+		bodyBorder="false">
+
+		<g:HTMLPanel>
+
+			<div class="content">
+
+				<div class='{style.left}'>
+					<div class='{style.section}'>
+						<div class='{style.sideBar}'>
+							<p class='{style.sideheaderFont}'>Welcome to Cloud Pier demo portal</p>
+							<p class='{style.sideFont}'>Cloud Pier provides an open source, multi-cloud application management system with 4 core features that get the best out of your platform(s) of choice!
+                                                        </p>
+							<p class='{style.sideFont}'>
+                                                            Please visit Cloud Pier’s website at <a href="http://www.opencloudpier.org">www.opencloudpier.org</a> 
+                                                        <br></br>
+                                                        Cloud Pier originated from Cloud4SOA, an EU co-funded research project from the FP7 program. 
+							</p>
+						</div>
+						<div class='{style.sideImages}'>
+							<img src="cloud4soadashboard/gwt/c4s/imgs/eu.gif" alt="EU logo"
+								title="EU logo" class='{style.euImg}' />
+							<img src="cloud4soadashboard/gwt/c4s/imgs/fp7_small.gif" alt="FP7"
+								title="FP7" class='{style.fp7Img}' />
+
+						</div>
+					</div>
+				</div>
+				<div class='{style.center}'>
+					<div class='{style.section}'>
+						<div>
+							<img src="cloud4soadashboard/gwt/c4s/imgs/cloudpier.jpg" alt="Clouds"
+								title="Clouds" class='{style.bannerImg}' />
+						</div>
+						<div class='{style.banner}'>
+
+							<p class='{style.titleFont}'>Your Multi-PaaS Suite</p>
+
+						</div>
+						<div style="clear:both;"></div>
+						<div>
+							<div class='{style.column4}'>
+								<div class='{style.columnHeader}'>
+									<p class='{style.columnHeaderFont}'>Matchmaking</p>
+								</div>
+								<div class='{style.columnText}'>
+									<p class='{style.textFont}'>
+                                                                            Looking for that special PaaS?<br></br>
+									
+                                                                        Search and browse for the best-fit cloud platform based on your application’s requirements.									</p>
+								</div>
+							</div>
+							<div class='{style.column4}'>
+								<div class='{style.columnHeader}'>
+									<p class='{style.columnHeaderFont}'>Management</p>
+								</div>
+								<div class='{style.columnText}'>
+									<p class='{style.textFont}'>
+                                                                            Too many clouds, too little time?<br></br>
+                                                                        Streamlined “multi-cloud” management of your applications across several platforms.
+									</p>
+								</div>
+							</div>
+							<div class='{style.column4}'>
+								<div class='{style.columnHeader}'>
+									<p class='{style.columnHeaderFont}'>Monitoring</p>
+								</div>
+								<div class='{style.columnText}'>
+									<p class='{style.textFont}'>
+                                                                            Comparing apples and oranges?<br></br>
+                                                                    Monitoring of applications deployed on several platforms,
+                                                                    using universal metrics and user-defined SLA policies.
+									</p>
+								</div>
+							</div>
+							<div class='{style.column4}'>
+								<div class='{style.columnHeader}'>
+									<p class='{style.columnHeaderFont}'>Migration</p>
+								</div>
+								<div class='{style.columnText}'>
+									<p class='{style.textFont}'>
+                                                                            Vendor lock-in got you down?<br></br>
+                                                                            Enables portability of applications and their data between similar platforms (e.g. Java to Java), yet very different vendors.
+									</p>
+								</div>
+							</div>
+						</div>
+                                                    <div class='{style.centerDisclaimer}'>
+                                                        <p class='{style.textSmallFont}'>
+                                                            Disclaimer: The PaaS offerings included in the matchmaking results are based on sample data gathered
+                                                            from the Cloud4SOA research project.
+                                                            While profiles are updated based on new tests, they might not reflect up-to-date data at
+                                                            the time of use, and do not reflect direct data from the provider.  SLA info is user-defined,
+                                                            and does not represent contract offered by the providers listed.
+                                                        </p>
+                                                        </div>
+
+					</div>
+				</div>
+				<div class='{style.right}'>
+					<div class='{style.section}'>
+						<div class='{style.sideBar}'>
+							<p class='{style.sideheaderFont}'>Supported providers</p>
+							<div class='{style.sideRightBar}'>
+								<img src="cloud4soadashboard/gwt/c4s/imgs/paas_logos/OpenShift-Logo.png"
+									alt="OpenShift Logo" title="OpenShift Logo" class='{style.rightImg50}' />
+								<img src="cloud4soadashboard/gwt/c4s/imgs/paas_logos/cloud_control_logo_0.png"
+									alt="CloudControl Logo" title="CloudControl Logo" class='{style.rightImg50}' />
+								<img src="cloud4soadashboard/gwt/c4s/imgs/paas_logos/CloudBees-Logo.png"
+									alt="CloudBees Logo" title="CloudBees Logo" class='{style.rightImg}' />
+								<img src="cloud4soadashboard/gwt/c4s/imgs/paas_logos/cloud-foundry-logo1.png"
+									alt="Cloud Foundry Logo" title="Cloud Foundry Logo" class='{style.rightImg50}' />
+								<img src="cloud4soadashboard/gwt/c4s/imgs/paas_logos/aws-logo.png" alt="AWS Logo"
+									title="AWS Logo" class='{style.rightImg}' />
+								<img src="cloud4soadashboard/gwt/c4s/imgs/paas_logos/heroku-Logo-1.jpg"
+									alt="Heroku Logo" title="Heroku Logo" class='{style.rightImg}' />
+								<!--<img
+									src="cloud4soadashboard/gwt/c4s/imgs/80777_dotCloud_LOGO_color.jpg"
+									alt="dot Cloud Logo" title="dot Cloud Logo" class='{style.rightImg}' />-->
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</g:HTMLPanel>
+	</gxt:ContentPanel>
+
+
+</ui:UiBinder>

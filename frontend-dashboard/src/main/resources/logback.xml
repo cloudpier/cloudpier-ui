@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This file is part of Cloud4SOA Frontend.
+  ~
+  ~     Cloud4SOA Frontend is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Cloud4SOA Frontend is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Cloud4SOA Frontend.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<configuration>
+    
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+         
+    <filter class="eu.cloud4soa.governance.monitoring.worker.util.BlockThreadsLogFilter" >
+        <level>DEBUG</level>
+    </filter>
+    
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender> 
+  
+  
+  <appender name="MONITORING" class="ch.qos.logback.core.FileAppender">
+      <file>monitor.log</file>
+      <append>true</append>
+      
+      <filter class="eu.cloud4soa.governance.monitoring.worker.util.AcceptThreadsLogFilter" />
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  
+  <appender name="CXF" class="ch.qos.logback.core.FileAppender">
+      <file>cxf.log</file>
+      <append>true</append>
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  
+  <appender name="ADAPTER_CXF" class="ch.qos.logback.core.FileAppender">
+      <file>adapterCXF.log</file>
+      <append>true</append>
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+
+  <logger name="org.openrdf.http.client.HTTPClient" level="INFO"/>
+<!--  <logger name="org.apache.cxf.interceptor.LoggingInInterceptor" level="WARN"/> -->
+  <logger name="eu.cloud4soa.relational.persistence.MonitoringStatisticRepository" level="ERROR"/>
+  <logger name="eu.cloud4soa.relational.persistence.MonitoringJobRepository" level="ERROR"/>
+  <logger name="org.hibernate" level="ERROR"/>
+  <logger name="eu.cloud4soa.relational.persistence.support.AbstractHbmDao" level="ERROR"/>
+  <logger name="eu.cloud4soa.governance.monitoring.worker.MonitoringWorker" level="ERROR"/>
+  <logger name="org.ontoware.rdf2go" level="ERROR"/>
+<!--  <logger name="org.apache.cxf" level="ERROR"/> -->
+  <logger name="com.hp.hpl.jena" level="ERROR"/>
+    <logger name="eu.cloud4soa.governance.sla.enforcement.worker" level="INFO"/>
+    <logger name="com.hp.hpl.jena.sdb.sql.SDBConnection" level="ERROR"/>
+  
+  
+  <!-- Configuring cxf log in a specific file -->
+  <logger name="org.apache.cxf.transport" level="DEBUG" additivity="false">
+        <appender-ref ref="CXF"/>
+  </logger>
+  
+  <logger name="org.apache.cxf.interceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="CXF"/>
+  </logger>
+ 
+ <!--
+  <logger name="org.apache.cxf.transport.http.HTTPCondui" level="DEBUG" additivity="false">
+        <appender-ref ref="CXF"/>
+  </logger>
+  
+  <logger name="org.apache.cxf.transport.http.HTTPConduit" level="DEBUG" additivity="false">
+        <appender-ref ref="CXF"/>
+  </logger>
+  
+  <logger name="org.apache.cxf.transport.http.TrustDecisionUtil" level="DEBUG" additivity="false">
+        <appender-ref ref="CXF"/>
+  </logger>
+  
+  <logger name="org.apache.cxf.transport.http.Headers" level="DEBUG" additivity="false">
+        <appender-ref ref="CXF"/>
+  </logger>
+  
+  <logger name="org.apache.cxf.interceptor.LoggingOutInterceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="CXF"/>
+  </logger>
+  
+  <logger name="org.apache.cxf.interceptor.LoggingInInterceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="CXF"/>
+  </logger>
+  -->
+  
+  
+  
+  <logger name="org.apache.cxf.configuration.spring.ConfigurerImpl" level="DEBUG" additivity="false">
+        <appender-ref ref="MONITORING"/>
+  </logger>
+
+  <logger name="org.springframework.scheduling.support.support.TaskUtils" level="DEBUG" additivity="false">
+        <appender-ref ref="MONITORING"/>
+  </logger>
+
+  
+  
+  <logger name="eu.cloud4soa.adapter.rest.impl.AdapterClientCXF" level="DEBUG" additivity="false">
+        <appender-ref ref="ADAPTER_CXF"/>
+  </logger>
+  
+  
+  
+  
+  <!-- Configuring different loggers -->
+  
+  <logger name="eu.cloud4soa.relational.persistence.MonitoringMetricRepository" level="DEBUG" additivity="false">
+        <appender-ref ref="MONITORING"/>
+  </logger>
+  
+  <logger name="eu.cloud4soa.relational.persistence.SLAEnforcementJobRepository" level="DEBUG" additivity="false">
+        <appender-ref ref="MONITORING"/>
+  </logger>
+  
+  <logger name="eu.cloud4soa.governance.monitoring" level="DEBUG" additivity="false">
+        <appender-ref ref="MONITORING"/>
+  </logger>
+  
+  
+  
+  
+  
+  
+  <logger name="monitoring" level="DEBUG" additivity="false">
+        <appender-ref ref="MONITORING"/>
+  </logger>
+  
+  
+  
+ 
+  
+    
+  <root level="DEBUG">
+    <appender-ref ref="MONITORING" />
+    <appender-ref ref="STDOUT" />
+    
+  </root>
+  
+</configuration>
