@@ -1,12 +1,7 @@
-Cloud4SOA Frontend project
+Cloud Pier Frontend modules
 ==========================
 
-Checkout project from http://pandora.atosorigin.es/svn/cloud4soa/frontend/trunk 
-as Java Project. Current configuration for a single Eclipse project including all modules
-
-Compile the project at root level with:
-
-    mvn install
+This Repository includes all modules that compose Cloud Pier Web UI
 
 Current modules:
 - frontend-commons: include common client and server helper classes and services
@@ -15,6 +10,14 @@ it should include any code reuse by dashboard and widgets
 Cloud4SOA user interface 
 - frontend-widget-user-management: generates user management widget and related views
 - frontend-widget-search: generates search for PaaS offerings widget and related views
+- frontend-login
+- frontend-widget-search
+- frontend-widget-user-management
+- frontend-theme
+- frontend-widget-monitoring
+- frontend-widget-sla-management
+
+
 
 Dependencies:
 frontend-widget-user-management -> frontend-commons
@@ -28,12 +31,8 @@ Place your command line in a concrete widget or dashboard root directory.
 Ensure frontend-commons is up to date and installed with mvn install
 Compile:
 
-    mvn clean gwt:compile
-Execute:
+    mvn clean install
 
-    mvn -P dev gwt:run
-
-The 'dev' profile must be activated in order to include the MySQL JDBC Connector in the classpath.
 
 When producing the war file for deploying in a servlet container you won't include the MySQL JDBC Connector in the classpath.
 Instead, you will manually add the MySQL JDBC Connector in the servlet container.
@@ -48,19 +47,15 @@ Accept changes and debug. Set code breakpoints and from emerging GWT Development
 Standalone and Full mode
 ------------------------
 
-Cloud4SOA can be started in two modes: standalone and full.
+Cloud Pier can be started in two modes: standalone and full.
 The 'standalone' mode allows users to use only the matchmaking functionality hiding deployment, monitoring, migration
 and SLA enforcement.
 Furthermore, the 'standalone' mode provide a slightly modified welcome page that avoid referring to the functions not
 provided in this mode.
 
 The mode can be decided at startup by mean of a system property (environment variable) 'c4s.mode'. When set to 'standalone'
-this property makes the Cloud4SOA application to work in standalone mode. When unset, set to 'full' (or any other value)
-Cloud4SOA works full featured.
-
-When using mvn gwt:run, the property can be set with:
-
-    mvn -Dc4s.mode=standalone gwt:run
+this property makes the Cloud Pier application to work in standalone mode. When unset, set to 'full' (or any other value)
+Cloud Pier works full featured.
 
 When deploying the war file in tomcat, the property can be set using the CATALINA_OPTS variable:
 
@@ -70,11 +65,6 @@ When deploying the war file in tomcat, the property can be set using the CATALIN
 In Debian style linux distribution, the variable can be set in /etc/default/tomcat7 file
 
     JAVA_OPTS="-Djava.awt.headless=true -XX:MaxPermSize=200m -mx512m -XX:+UseConcMarkSweepGC -Dc4s.mode=standalone"
-
-
-Tips/Notes
-----------
-Let's use this section to communicate lessons learnt and notes WRT the maven lifecycle for GWT-based projects
 
 
 
