@@ -3,29 +3,33 @@ Cloud Pier Frontend modules
 
 This Repository includes all modules that compose Cloud Pier Web UI
 
-Current modules:
-- frontend-commons: include common client and server helper classes and services
+# Current modules:
+## frontend-commons
+Include common client and server helper classes and services
 it should include any code reuse by dashboard and widgets
-- frontend-dashboard: generates the Cloud4SOA frontend dashboard, that is, the
-Cloud4SOA user interface 
-- frontend-widget-user-management: generates user management widget and related views
-- frontend-widget-search: generates search for PaaS offerings widget and related views
-- frontend-login
-- frontend-widget-search
-- frontend-widget-user-management
-- frontend-theme
-- frontend-widget-monitoring
-- frontend-widget-sla-management
+## frontend-dashboard
+Generates the Cloud Pier frontend dashboard, that is, the Cloud Pier Web user interface 
+## frontend-widget-user-management
+Generates user management widget and related views
+## frontend-widget-search
+Generates search for PaaS offerings widget and related views
+## frontend-login
+Generates user login widget and related views
+## frontend-widget-user-management
+Generates user management widget and related views
+## frontend-theme
+Generates Cloud Pier theme related code
+## frontend-widget-monitoring
+Generates monitoring widget and related views
+## frontend-widget-sla-management
+Generates SLA setup and viewing widgets and related views
 
+# Usage
 
+## Dependencies
+Cloud Pier UI requires Cloud Pier Core. See the wiki for more details and technical instructions
 
-Dependencies:
-frontend-widget-user-management -> frontend-commons
-frontend-widget-search -> frontend-commons
-frontend-dashboard  -> frontend-commons
-					-> frontend-widget-user-management
-					-> frontend-widget-search
-
+## Deployment
 Compile, debug and run individual widgets and the dashboard
 Place your command line in a concrete widget or dashboard root directory.
 Ensure frontend-commons is up to date and installed with mvn install
@@ -33,18 +37,17 @@ Compile:
 
     mvn clean install
 
-
 When producing the war file for deploying in a servlet container you won't include the MySQL JDBC Connector in the classpath.
 Instead, you will manually add the MySQL JDBC Connector in the servlet container.
 
-Debugging from Eclipse:
+### Debugging from Eclipse:
 In Project Explorer select the widget module, righ-click, select RunAs/Maven build ...
 In goals type gwt:debug, give a name, apply changes and run
 Eclipse runs a debugging session. To connect to it, create a debug configuration for same
 module, as Remote Java Application debug project, and select port 8008 (as configured in pom.xml) to connect to.
 Accept changes and debug. Set code breakpoints and from emerging GWT Development Mode window launch the application in default browser.
 
-Standalone and Full mode
+# Standalone and Full mode
 ------------------------
 
 Cloud Pier can be started in two modes: standalone and full.
